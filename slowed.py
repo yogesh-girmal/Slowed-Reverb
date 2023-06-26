@@ -26,7 +26,7 @@ def download_youtube_video(url, output_path):
 
 def slow_down_audio(audio_path, output_path):
     sound = AudioSegment.from_file(audio_path)
-    slowed_sound = sound._spawn(sound.raw_data, overrides={"frame_rate": int(sound.frame_rate * 0.8)})
+    slowed_sound = sound._spawn(sound.raw_data, overrides={"frame_rate": int(sound.frame_rate * 0.85)})
     slowed_sound.export(output_path, format="mp3")
 
 def merge_audio_video(audio_path, video_path, output_path):
@@ -73,5 +73,4 @@ try:
 finally:
     # Clean up temp audio and video folders
     #delete_temp_audio()
-    os._exit()
-
+    os._exit(1)
